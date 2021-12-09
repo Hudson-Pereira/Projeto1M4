@@ -4,10 +4,9 @@ import { AppService } from './app.service';
 import { FilmeModule } from './filme/filme.module';
 import { GeneroModule } from './genero/genero.module';
 import { ParticipanteModule } from './participante/participante.module';
-import { AuthModule } from './auth/auth.module';
 
 @Module({
-  imports: [FilmeModule, GeneroModule, ParticipanteModule, AuthModule],
+  imports: [FilmeModule, GeneroModule, ParticipanteModule],
   controllers: [AppController],
   providers: [AppService],
 })
