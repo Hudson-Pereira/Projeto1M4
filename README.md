@@ -1,73 +1,64 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
-</p>
+API de Filmes.
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+API construída com NESTJS, linkada ao banco de dados Postgres utilizando ORM Prisma. Validações de entrada de dados novos e alterações dos já existentes feitas com Decorators.
+Também foi utilizado o esquema de segurança HELMET. Os testes de uso foram executados pela extensão THUNDER CLIENT.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+Essa API possui três rotas, sendo /filme, /participante e /genero. Afim de facilitar o uso, a rota /genero já possui algums dados inseridos, o que não impede que o usuário insira novos dados ou manipule os já existentes, seja alterando ou excluindo.
 
-## Description
+Cada rota possui um CRUD completo, que será descrito abaixo. Recomenda-se utilizar essa API iniciando os cadastros pela rota /genero, seguida por /filme, e, por fim, /participante.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+/genero
 
-## Installation
+A rota GET /genero está configurada para retornar todos os itens inseridos, mostrando os dados cadastrados e o ID dos mesmos. Quando sem dados, retornará xxxxxxxxxxxxxxxxxxxxxxx
 
-```bash
-$ npm install
-```
+A rota GET /genero/id está configurada para retornar os dados do item especificado pelo id. Quando sem dados, retornará xxxxxxxxxxxxxxxxxxxxxxx
 
-## Running the app
+A rota PATCH /genero/id está configurada para alterar os dados do item especificado pelo id, seja um único ou um conjunto de dados. Quando não encontrado o item pelo id, retornará xxxxxxxxxxxxxxxxxxxxxxx
 
-```bash
-# development
-$ npm run start
+A rota POST /genero está configurada para cadastrar um novo filme, seguindo as informações:
 
-# watch mode
-$ npm run start:dev
+name: do tipo string, sendo validado se está vazio e se foi inserido o tipo correto.
 
-# production mode
-$ npm run start:prod
-```
+A rota DELETE /genero/id está configurada para deletar os dados inseridos no id selecionado. Quando não encontrado o item pelo id, retornará xxxxxxxxxxxxxxxxxxxxxxx
 
-## Test
+/filme
 
-```bash
-# unit tests
-$ npm run test
+A rota GET /filme está configurada para retornar todos os itens inseridos, mostrando os dados cadastrados e o ID dos mesmos. Quando sem dados, retornará xxxxxxxxxxxxxxxxxxxxxxx
 
-# e2e tests
-$ npm run test:e2e
+A rota GET /filme/id está configurada para retornar os dados do item especificado pelo id. Quando sem dados, retornará xxxxxxxxxxxxxxxxxxxxxxx
 
-# test coverage
-$ npm run test:cov
-```
+A rota PATCH /filme/id está configurada para alterar os dados do item especificado pelo id, seja um único ou um conjunto de dados. Quando não encontrado o item pelo id, retornará xxxxxxxxxxxxxxxxxxxxxxx
 
-## Support
+A rota POST /filme está configurada para cadastrar um novo filme, seguindo as informações:
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+name: do tipo string, sendo validado se está vazio e se foi inserido o tipo correto.
 
-## Stay in touch
+ano: do tipo number, sendo validado se foi inserido o tipo correto.
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+capa: do tipo string, sendo validado se está vazio e se foi inserido o tipo correto.Aqui é recomendado que se insira uma URL com a imagem escolhida.
 
-## License
+generoid: do tipo number, sendo validado se está vazio e se foi inserido o tipo correto. Aqui deve-se usar o ID de um genero já cadastrado em banco, ou de algum inserido posteriormente pelo usuário.
 
-Nest is [MIT licensed](LICENSE).
+A rota DELETE /filme/id está configurada para deletar os dados inseridos no id selecionado. Quando não encontrado o item pelo id, retornará xxxxxxxxxxxxxxxxxxxxxxx
+
+/participante
+
+A rota GET /participante está configurada para retornar todos os itens inseridos, mostrando os dados cadastrados e o ID dos mesmos. Quando sem dados, retornará xxxxxxxxxxxxxxxxxxxxxxx
+
+A rota GET /participante/id está configurada para retornar os dados do item especificado pelo id. Quando sem dados, retornará xxxxxxxxxxxxxxxxxxxxxxx
+
+A rota PATCH /participante/id está configurada para alterar os dados do item especificado pelo id, seja um único ou um conjunto de dados. Quando não encontrado o item pelo id, retornará xxxxxxxxxxxxxxxxxxxxxxx
+
+A rota POST /participante está configurada para cadastrar um novo filme, seguindo as informações:
+
+name: do tipo string, sendo validado se está vazio e se foi inserido o tipo correto.
+
+genero: do tipo string, sendo validado se está vazio e se foi inserido o tipo correto.
+Este genero refere-se ao sexo do participante.
+
+ano: do tipo number, sendo validado se está vazio e se foi inserido o tipo correto.
+Este ano refere-se ao ano de nascimento do participante.
+
+filmeid: do tipo unmber, sendo validado se está vazio e se foi inserido o tipo correto. Esse id deve se referenciar ao ID do filme cadastrado.
+
+A rota DELETE /participante/id está configurada para deletar os dados inseridos no id selecionado. Quando não encontrado o item pelo id, retornará xxxxxxxxxxxxxxxxxxxxxxx
