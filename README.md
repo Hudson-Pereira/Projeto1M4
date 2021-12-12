@@ -9,26 +9,25 @@ Cada rota possui um CRUD completo, que será descrito abaixo. Recomenda-se utili
 
 /genero
 
-A rota GET /genero está configurada para retornar todos os itens inseridos, mostrando os dados cadastrados e o ID dos mesmos. Quando sem dados, retornará xxxxxxxxxxxxxxxxxxxxxxx
+A rota GET /genero está configurada para retornar todos os itens inseridos, mostrando os dados cadastrados e o ID dos mesmos. Quando sem dados, retornará uma lista vazia.
 
-A rota GET /genero/id está configurada para retornar os dados do item especificado pelo id. Quando sem dados, retornará xxxxxxxxxxxxxxxxxxxxxxx
+A rota GET /genero/id está configurada para retornar os dados do item especificado pelo id. Quando sem dados, retornará uma lista vazia.
 
-A rota PATCH /genero/id está configurada para alterar os dados do item especificado pelo id, seja um único ou um conjunto de dados. Quando não encontrado o item pelo id, retornará xxxxxxxxxxxxxxxxxxxxxxx
+A rota PATCH /genero/id está configurada para alterar os dados do item especificado pelo id, seja um único ou um conjunto de dados. Quando não encontrado o item pelo id, retornará uma lista vazia.
 
 A rota POST /genero está configurada para cadastrar um novo filme, seguindo as informações:
 
 name: do tipo string, sendo validado se está vazio e se foi inserido o tipo correto.
 
-A rota DELETE /genero/id está configurada para deletar os dados inseridos no id selecionado. Quando não encontrado o item pelo id, retornará xxxxxxxxxxxxxxxxxxxxxxx
+A rota DELETE /genero/id está configurada para deletar os dados inseridos no id selecionado. Quando não encontrado o item pelo id, retornará uma lista vazia.
 
 /filme
 
-A rota GET /filme está configurada para retornar todos os itens inseridos, mostrando os dados cadastrados e o ID dos mesmos. Quando sem dados, retornará xxxxxxxxxxxxxxxxxxxxxxx
+A rota GET /filme está configurada para retornar todos os itens inseridos, mostrando os dados cadastrados e o ID dos mesmos. Quando sem dados, retornará uma lista vazia.
 
-A rota GET /filme/id está configurada para retornar os dados do item especificado pelo id. Quando sem dados, retornará xxxxxxxxxxxxxxxxxxxxxxx
+A rota GET /filme/id está configurada para retornar os dados do item especificado pelo id. Quando sem dados, retornará uma lista vazia.
 
-A rota PATCH /filme/id está configurada para alterar os dados do item especificado pelo id, seja um único ou um conjunto de dados. Quando não encontrado o item pelo id, retornará xxxxxxxxxxxxxxxxxxxxxxx
-
+A rota PATCH /filme/id está configurada para alterar os dados do item especificado pelo id, seja um único ou um conjunto de dados. Quando não encontrado o item pelo id, retornará uma lista vazia.
 A rota POST /filme está configurada para cadastrar um novo filme, seguindo as informações:
 
 name: do tipo string, sendo validado se está vazio e se foi inserido o tipo correto.
@@ -39,15 +38,14 @@ capa: do tipo string, sendo validado se está vazio e se foi inserido o tipo cor
 
 generoid: do tipo number, sendo validado se está vazio e se foi inserido o tipo correto. Aqui deve-se usar o ID de um genero já cadastrado em banco, ou de algum inserido posteriormente pelo usuário.
 
-A rota DELETE /filme/id está configurada para deletar os dados inseridos no id selecionado. Quando não encontrado o item pelo id, retornará xxxxxxxxxxxxxxxxxxxxxxx
-
+A rota DELETE /filme/id está configurada para deletar os dados inseridos no id selecionado. Quando não encontrado o item pelo id, retornará uma lista vazia.
 /participante
 
-A rota GET /participante está configurada para retornar todos os itens inseridos, mostrando os dados cadastrados e o ID dos mesmos. Quando sem dados, retornará xxxxxxxxxxxxxxxxxxxxxxx
+A rota GET /participante está configurada para retornar todos os itens inseridos, mostrando os dados cadastrados e o ID dos mesmos. Quando sem dados, retornará uma lista vazia.
 
-A rota GET /participante/id está configurada para retornar os dados do item especificado pelo id. Quando sem dados, retornará xxxxxxxxxxxxxxxxxxxxxxx
+A rota GET /participante/id está configurada para retornar os dados do item especificado pelo id. Quando sem dados, retornará uma lista vazia.
 
-A rota PATCH /participante/id está configurada para alterar os dados do item especificado pelo id, seja um único ou um conjunto de dados. Quando não encontrado o item pelo id, retornará xxxxxxxxxxxxxxxxxxxxxxx
+A rota PATCH /participante/id está configurada para alterar os dados do item especificado pelo id, seja um único ou um conjunto de dados. Quando não encontrado o item pelo id, retornará uma lista vazia.
 
 A rota POST /participante está configurada para cadastrar um novo filme, seguindo as informações:
 
@@ -61,4 +59,4 @@ Este ano refere-se ao ano de nascimento do participante.
 
 filmeid: do tipo unmber, sendo validado se está vazio e se foi inserido o tipo correto. Esse id deve se referenciar ao ID do filme cadastrado.
 
-A rota DELETE /participante/id está configurada para deletar os dados inseridos no id selecionado. Quando não encontrado o item pelo id, retornará xxxxxxxxxxxxxxxxxxxxxxx
+A rota DELETE /participante/id está configurada para deletar os dados inseridos no id selecionado. Quando não encontrado o item pelo id, retornará uma lista vazia.
